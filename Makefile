@@ -25,3 +25,4 @@ mdlint_finch:
 		-v "$(pwd)":/workdir \
 		ghcr.io/igorshubovych/markdownlint-cli:latest \
 		"**/*.md"
+	

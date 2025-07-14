@@ -1,0 +1,19 @@
+[[docs.tag.envvar]]
+heading = "Enforce NVIDIA GPU Limits"
+description = """
+These settings control how the `NVIDIA_VISIBLE_DEVICES` environment variable is processed by the container runtime. The volume mounts setting allows GPU devices to be mounted as volumes, while the unprivileged environment variable setting controls whether unprivileged containers can use `NVIDIA_VISIBLE_DEVICES` to access GPU resources (disabled by default for security).\n
+
+See [SECURITY_GUIDANCE](https://github.com/bottlerocket-os/bottlerocket/blob/develop/SECURITY_GUIDANCE.md#enforce-requested-nvidia-gpu-limits-for-unprivileged-containers) for more details
+"""
+
+[[docs.ref.visible-devices-as-volume-mounts]]
+description = "Allows mounting visible GPU devices as volumes"
+default = "`true`"
+accepted_values = ["`true`", "`false`"]
+tags = ["envvar"]
+
+[[docs.ref.visible-devices-envvar-when-unprivileged]]
+description = "Exposes GPU devices via environment variables in unprivileged containers"
+default = "`false`"
+accepted_values = ["`true`", "`false`"]
+tags = ["envvar"]
