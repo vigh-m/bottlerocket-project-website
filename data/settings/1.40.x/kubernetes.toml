@@ -651,3 +651,41 @@ spec:
     fsGroup: 3000
 ...
 """
+
+[[docs.ref.container-log-monitor-interval]]
+description = """
+Specifies the duration at which the container logs are monitored for performing the log rotate operation.
+
+This defaults to `10 * time.Seconds`. But can be customized to a smaller value based on the log generation rate and the size required to be rotated against.
+"""
+default = "10s"
+see = [
+    ["[`containerLogMonitorInterval` in Kubelet Configuration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/)"],
+    [ "[Logging Architecture](https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation)"],
+]
+note = "Supported from k8s v1.30 onwards"
+
+[[docs.ref.container-log-max-workers]]
+description = """
+Specifies the maximum number of concurrent workers to spawn for performing the log rotate operations. Set this count to 1 for disabling the concurrent log rotation workflows.
+"""
+default = "1"
+see = [
+    ["[`containerLogMaxWorkers` in Kubelet Configuration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/)"],
+    [ "[Logging Architecture](https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation)"],
+]
+note = "Supported from k8s v1.30 onwards"
+
+[[docs.ref.single-process-oom-kill]]
+description = """
+Setting this to true enable single process OOM killing in cgroups v2. In this mode, if a single process is OOM killed within a container, the remaining processes will not be OOM killed.
+"""
+default = "false"
+accepted_values = [
+    "`true`",
+    "`false`"
+]
+see = [
+    ["[`singleProcessOOMKill` in Kubelet Configuration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/)"]
+]
+note = "Supported from k8s v1.32 onwards"
